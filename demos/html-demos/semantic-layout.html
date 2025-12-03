@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantic HTML5 Layout Demo</title>
+    <style>
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* Layout styles */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        background: #2c3e50;
+        color: white;
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      /* Navigation */
+      nav ul {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        transition: opacity 0.3s;
+      }
+
+      nav a:hover {
+        opacity: 0.8;
+      }
+
+      /* Main content */
+      main {
+        padding: 2rem 0;
+        min-height: calc(100vh - 200px);
+      }
+
+      /* Article */
+      article {
+        background: white;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      article header {
+        background: none;
+        padding: 0;
+        margin-bottom: 1rem;
+        position: static;
+        box-shadow: none;
+      }
+
+      article header h2 {
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+      }
+
+      article header .meta {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+
+      article section {
+        margin: 1.5rem 0;
+      }
+
+      article section h3 {
+        color: #34495e;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Aside (Sidebar) */
+      aside {
+        background: #ecf0f1;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+
+      aside h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      }
+
+      aside ul {
+        list-style: none;
+      }
+
+      aside li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #bdc3c7;
+      }
+
+      aside li:last-child {
+        border-bottom: none;
+      }
+
+      aside a {
+        color: #3498db;
+        text-decoration: none;
+      }
+
+      aside a:hover {
+        text-decoration: underline;
+      }
+
+      /* Footer */
+      footer {
+        background: #34495e;
+        color: white;
+        padding: 2rem 0;
+        margin-top: 2rem;
+      }
+
+      footer .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      footer h4 {
+        margin-bottom: 1rem;
+      }
+
+      footer ul {
+        list-style: none;
+      }
+
+      footer a {
+        color: #ecf0f1;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: white;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        header .container {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        nav ul {
+          flex-direction: column;
+          gap: 0.5rem;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+      SEMANTIC HTML5 LAYOUT DEMO
+      
+      This demo showcases proper use of HTML5 semantic elements:
+      - <header>: Page/section header
+      - <nav>: Navigation links
+      - <main>: Main content (one per page)
+      - <article>: Self-contained content
+      - <section>: Thematic grouping within article
+      - <aside>: Tangentially related content
+      - <footer>: Page/section footer
+      
+      Benefits:
+      - Better SEO
+      - Improved accessibility
+      - Clearer code structure
+      - Easier maintenance
+    -->
+
+    <!-- Page Header -->
+    <header>
+      <div class="container">
+        <h1>My Blog</h1>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container">
+      <!-- Blog Post (Self-contained content = article) -->
+      <article>
+        <!-- Article Header -->
+        <header>
+          <h2>Understanding Semantic HTML</h2>
+          <div class="meta">
+            <time datetime="2025-12-03">December 3, 2025</time>
+            <span> • </span>
+            <address>By <a href="#author">John Doe</a></address>
+          </div>
+        </header>
+
+        <!-- Article Sections (Thematic groupings) -->
+        <section>
+          <h3>Introduction</h3>
+          <p>
+            Semantic HTML uses elements that clearly describe their meaning to
+            both the browser and the developer. Instead of using generic
+            <code>&lt;div&gt;</code> tags everywhere, we use meaningful elements
+            like <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, and
+            <code>&lt;nav&gt;</code>.
+          </p>
+        </section>
+
+        <section>
+          <h3>Why Semantic HTML Matters</h3>
+          <p>Using semantic HTML provides several benefits:</p>
+          <ul>
+            <li>
+              <strong>Accessibility:</strong> Screen readers can navigate
+              content better
+            </li>
+            <li>
+              <strong>SEO:</strong> Search engines understand content structure
+            </li>
+            <li><strong>Maintainability:</strong> Code is self-documenting</li>
+            <li>
+              <strong>Future-proof:</strong> Works better with new technologies
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Common Semantic Elements</h3>
+          <p>Here are the most commonly used semantic elements:</p>
+          <dl>
+            <dt><code>&lt;header&gt;</code></dt>
+            <dd>Introductory content or navigation</dd>
+
+            <dt><code>&lt;nav&gt;</code></dt>
+            <dd>Navigation links</dd>
+
+            <dt><code>&lt;main&gt;</code></dt>
+            <dd>Main content of the document</dd>
+
+            <dt><code>&lt;article&gt;</code></dt>
+            <dd>Self-contained, independently distributable content</dd>
+
+            <dt><code>&lt;section&gt;</code></dt>
+            <dd>Thematic grouping of content</dd>
+
+            <dt><code>&lt;aside&gt;</code></dt>
+            <dd>Tangentially related content</dd>
+
+            <dt><code>&lt;footer&gt;</code></dt>
+            <dd>Footer for document or section</dd>
+          </dl>
+        </section>
+
+        <!-- Article Footer -->
+        <footer>
+          <p>
+            <strong>Tags:</strong>
+            <a href="#html">HTML</a>, <a href="#semantic">Semantic</a>,
+            <a href="#webdev">Web Development</a>
+          </p>
+        </footer>
+      </article>
+
+      <!-- Another Article -->
+      <article>
+        <header>
+          <h2>Best Practices for Semantic HTML</h2>
+          <div class="meta">
+            <time datetime="2025-12-02">December 2, 2025</time>
+            <span> • </span>
+            <address>By <a href="#author">Jane Smith</a></address>
+          </div>
+        </header>
+
+        <section>
+          <h3>Key Guidelines</h3>
+          <ol>
+            <li>Use semantic elements when their meaning fits</li>
+            <li>
+              Don't use <code>&lt;div&gt;</code> when a semantic element exists
+            </li>
+            <li>Always include proper heading hierarchy (h1-h6)</li>
+            <li>Use ARIA attributes when needed for accessibility</li>
+            <li>Test with screen readers to ensure proper navigation</li>
+          </ol>
+        </section>
+
+        <footer>
+          <p>
+            <strong>Tags:</strong>
+            <a href="#html">HTML</a>,
+            <a href="#bestpractices">Best Practices</a>
+          </p>
+        </footer>
+      </article>
+
+      <!-- Sidebar (Tangentially related content) -->
+      <aside>
+        <h3>Popular Posts</h3>
+        <ul>
+          <li><a href="#post1">Getting Started with HTML5</a></li>
+          <li><a href="#post2">CSS Grid vs Flexbox</a></li>
+          <li><a href="#post3">JavaScript ES6 Features</a></li>
+          <li><a href="#post4">Responsive Design Patterns</a></li>
+        </ul>
+      </aside>
+
+      <aside>
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="#html">HTML (15)</a></li>
+          <li><a href="#css">CSS (23)</a></li>
+          <li><a href="#javascript">JavaScript (31)</a></li>
+          <li><a href="#performance">Performance (12)</a></li>
+        </ul>
+      </aside>
+    </main>
+
+    <!-- Page Footer -->
+    <footer>
+      <div class="container">
+        <div>
+          <h4>About</h4>
+          <p>
+            A blog dedicated to web development best practices and modern
+            techniques.
+          </p>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#sitemap">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#twitter">Twitter</a></li>
+            <li><a href="#github">GitHub</a></li>
+            <li><a href="#linkedin">LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p>&copy; 2025 My Blog. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 
+      INTERVIEW QUESTIONS TO PREPARE:
+      
+      1. When would you use <article> vs <section>?
+         Answer: <article> for self-contained, reusable content (blog posts, products).
+                 <section> for thematic grouping within a document.
+      
+      2. Can you nest articles and sections?
+         Answer: Yes! Articles can contain sections, and sections can contain articles.
+      
+      3. What's the difference between <header> and <head>?
+         Answer: <head> contains metadata (not visible).
+                 <header> contains introductory content (visible).
+      
+      4. How many <main> elements can a page have?
+         Answer: Only ONE <main> element per page (represents primary content).
+      
+      5. Why use semantic HTML instead of divs?
+         Answer: Better accessibility, SEO, maintainability, and future-proofing.
+    -->
+  </body>
+</html>
